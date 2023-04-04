@@ -1,0 +1,77 @@
+{% extends 'app/layouts/main.html' %}
+
+{% block main_content %}
+
+
+
+
+
+    <div class="col-md-3 sidebar p-4">
+        <nav class="navbar navbar-expand-md navbar-dark  flex-column h-100">
+            <div class="ml-auto nav-elem">
+                <a href="" class="nav-link ">
+                    <img src="https://via.placeholder.com/50" class="rounded-circle mr-2" alt="">
+                    Syhin Andrii
+                </a>
+
+            </div>
+            {#                <div class="app_info">#}
+            {##}
+            {#                    <p>this is a service to control your </p>#}
+            {#                    <p>enter relevant information about your financial transactions,</p>#}
+            {#                    <p> your spending history at any time</p>#}
+            {#                </div>#}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav flex-column">
+                    <li class=" active">
+                        <a class="nav-link nav-elem " href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-bs-toggle="collapse" >Account</a>
+
+                    </li>
+                    <ul class="collapse" id="collapseExample">
+                            <li class="sub-item">
+                                <a class=" nav-link ">Sign up</a>
+                            </li>
+                            <li class="sub-item">
+                                <a class="nav-link " >Sign in</a>
+                            </li>
+                            <li class="sub-item">
+                                <a class="nav-link " >Exit</a>
+                            </li >
+                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link nav-elem" href="#">My Cards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-elem" href="#">Budget</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="mt-auto"><a class="navbar-brand" href="#">TrackMoney</a></div>
+
+        </nav>
+
+
+    </div>
+
+
+    <div class="col-md-9 content sidebar p-4">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+
+
+
+{% endblock %}
+
+
+
+
+

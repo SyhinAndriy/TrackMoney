@@ -1,0 +1,26 @@
+
+
+<div class="transaction_cart">
+    <h4 class="text-center mb-3">Add transaction</h4>
+    <form class="d-flex flex-column justify-content-around h-100">
+        <div class="form-group">
+            <div class="btn-group" role="group" aria-label="Transaction Type">
+                <button type="button"  class="btn  transaction-type-button active" id="expenseBtn">Expense</button>
+                <button type="button" class="btn  transaction-type-button" id="profitBtn">Profit</button>
+                <button type="button" class="btn  transaction-type-button" id="transferBtn">Transfer</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="amountInput">Amount:</label>
+            <input type="number" class="form-control" id="amountInput" min="0" value="0">
+        </div>
+        <div class="form-group">
+            <label>Category:</label>
+            <select class="form-control" id="categorySelect"></select>
+        </div>
+        <a class="btn btn-dark transaction-btn" href="">Create</a>
+    </form>
+</div>
+
+
+

@@ -1,0 +1,198 @@
+body {
+    height: 675px;
+    background-image: linear-gradient(to right bottom, #4b4b4b, #3f3b40, #362b32, #2f1b21, #260a0a);
+}
+
+.container {
+    border-radius: 50px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    padding: 0;
+    height: 650px;
+    overflow: hidden;
+}
+
+.sidebar {
+    background-image: linear-gradient(to top, #4b4b4b, #413f41, #393336, #31282a, #291d1d);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+    /*background-image: linear-gradient(to right bottom, #393939, #3c3a3d, #423a3f, #493a3e, #4f3b3b);*/
+background-image: linear-gradient(to right bottom, #343334, #3c3b3c, #444345, #4d4b4d, #555356, #5a585b, #5e5c60, #636165, #666467, #686669, #6b696b, #6d6c6d);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+    font-size: 130%;
+
+}
+
+.navbar-brand {
+    font-size: 120%;
+}
+
+.navbar a:hover {
+    color: white;
+}
+
+.navbar li {
+    list-style: disc;
+    color: rgb(255 255 255 / 55%);
+    font-size: 120%;
+
+}
+
+li.sub-item {
+    list-style: circle;
+}
+
+.navbar li:hover {
+    transform: scale(1.15);
+    color: white;
+}
+
+
+/*---------------------------------CART START-------------------------------------*/
+
+.card {
+    border: none;
+    border-radius: 30px;
+    background-color: #46213A;
+    background-image: linear-gradient(to left top, #ff4646, #ff4140, #fe3b3a, #fe3534, #fd2f2e, #fd2a2a, #fd2625, #fd2020, #fd1c1c, #fe1717, #fe1212, #fe0b0b);
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    margin: 20px 10px;
+    padding: 10px;
+    height: 200px;
+    width: 80%;
+}
+
+.card-title {
+    font-size: 24px;
+}
+
+.money {
+    font-size: 300%;
+    font-weight: bold;
+}
+
+/*----------------------------------CART END----------------------------------*/
+
+
+/*---------------------------------TRANSACTION START-------------------------------------*/
+
+.transaction_cart {
+    background-image: linear-gradient(to top, #3f3f3c, #3d3d3a, #3b3b38, #393937, #373735, #343432, #30302f, #2d2d2c, #282827, #232322, #1f1f1e, #1a1a19);
+    color: #fff;
+    width: 80%;
+    height: 370px;
+    border-radius: 30px;
+    margin: 20px 10px;
+    padding: 10px 30px 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input[type=number] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-group .btn {
+    background-color: rgb(19, 19, 19);
+    color: white;
+}
+
+.btn.active {
+    background-color: white;
+    color: black;
+}
+
+.btn-group button {
+    flex: 1;
+}
+
+.form-group select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+select option {
+    background-color: #333;
+    color: #fff;
+}
+
+.transaction-btn {
+    background-image: linear-gradient(to left top, #ff4646, #ff4140, #fe3b3a, #fe3534, #fd2f2e, #fd2a2a, #fd2625, #fd2020, #fd1c1c, #fe1717, #fe1212, #fe0b0b);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s, transform 0.3s;
+    font-size: 120%;
+}
+
+.transaction-btn:hover {
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+
+}
+
+/*----------------------------------TRANSACTION END----------------------------------*/
+
+
+/*----------------------------------REGINSTER START----------------------------------*/
+.register {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px 40px 60px;
+    background-image: linear-gradient(to right bottom, #ad9cba, #a98fbc, #a581bd, #a173be, #9d65bf, #9a5cbe, #9753be, #944abd, #9144bc, #8f3fba, #8c38b9, #8932b7);
+    border-radius: 50px;
+    box-shadow: 0 0 20px #000000;
+    color: #fff;
+}
+
+/*form {*/
+/*    margin-top: 30px;*/
+/*}*/
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+/*a {*/
+/*    color: #fff;*/
+/*}*/
+
+.btn-register {
+    margin-top: 30px;
+    background-image: linear-gradient(to right bottom, #bdca48, #b9c23e, #b4b933, #b0b128, #aba91c, #a6a315, #a29e0c, #9d9802, #979301, #918e01, #8c8a00, #868500);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s, transform 0.3s;
+    font-size: 120%;
+}
+
+.btn-register:hover {
+   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+/*----------------------------------REGINSTER END----------------------------------*/

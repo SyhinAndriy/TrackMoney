@@ -19,4 +19,4 @@ class CustomLoginView(LoginView):
 
 
 class CustomLogoutView(LogoutView):
-    next_page = 'index'
+    next_page = 'login'

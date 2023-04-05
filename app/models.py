@@ -1,4 +1,3 @@
-
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -6,7 +5,7 @@ from django.contrib.auth.models import User
 class Account(models.Model):
     name = models.CharField(max_length=50)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    amount = models.DecimalField(max_digits=11, decimal_places=2)
+    amount = models.DecimalField(max_digits=11, decimal_places=2, default=0)
 
     def __str__(self):
         return self.name
@@ -39,5 +38,4 @@ class Transaction(models.Model):
         return self.category
 
     class Meta:
-
         ordering: ["-date"]

@@ -18,13 +18,12 @@ body {
 
 .content {
     /*background-image: linear-gradient(to right bottom, #393939, #3c3a3d, #423a3f, #493a3e, #4f3b3b);*/
-background-image: linear-gradient(to right bottom, #343334, #3c3b3c, #444345, #4d4b4d, #555356, #5a585b, #5e5c60, #636165, #666467, #686669, #6b696b, #6d6c6d);
+    background-image: linear-gradient(to right bottom, #343334, #3c3b3c, #444345, #4d4b4d, #555356, #5a585b, #5e5c60, #636165, #666467, #686669, #6b696b, #6d6c6d);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .navbar {
     font-size: 130%;
-
 }
 
 .navbar-brand {
@@ -35,22 +34,29 @@ background-image: linear-gradient(to right bottom, #343334, #3c3b3c, #444345, #4
     color: white;
 }
 
-.navbar li {
+.navbar .nav-elem {
     list-style: disc;
-    color: rgb(255 255 255 / 55%);
     font-size: 120%;
-
+    color: rgba(255,255,255,0.51);
 }
 
 li.sub-item {
     list-style: circle;
+
 }
 
-.navbar li:hover {
+.navbar .nav-elem:hover {
     transform: scale(1.15);
     color: white;
 }
-
+.user_elem{
+    color: rgba(255,255,255,0.51);
+    font-size: 140%;
+}
+.user_elem li{
+    list-style: circle;
+    font-size: 70%;
+}
 
 /*---------------------------------CART START-------------------------------------*/
 
@@ -71,9 +77,13 @@ li.sub-item {
     font-size: 24px;
 }
 
-.money {
-    font-size: 300%;
+.money, #change_money{
+    font-size: 250%;
     font-weight: bold;
+}
+#change_money:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 /*----------------------------------CART END----------------------------------*/
@@ -159,18 +169,14 @@ select option {
 
 /*----------------------------------REGINSTER START----------------------------------*/
 .register {
-    max-width: 600px;
+    width: 80%;
     margin: 0 auto;
-    padding: 30px 40px 60px;
-    background-image: linear-gradient(to right bottom, #ad9cba, #a98fbc, #a581bd, #a173be, #9d65bf, #9a5cbe, #9753be, #944abd, #9144bc, #8f3fba, #8c38b9, #8932b7);
+    padding: 30px 100px 60px;
+    background-image: linear-gradient(to right bottom, #726c76, #473753, #5f5764, #614871, #543466, #411e56, #4c3e54, #5e2b79, #443b49, #755a83, #4a2160, #413846);
     border-radius: 50px;
     box-shadow: 0 0 20px #000000;
     color: #fff;
 }
-
-/*form {*/
-/*    margin-top: 30px;*/
-/*}*/
 
 h1 {
     text-align: center;
@@ -178,21 +184,34 @@ h1 {
 }
 
 
-/*a {*/
-/*    color: #fff;*/
-/*}*/
+.register .form-group {
+    margin-bottom: 15px;
+}
+
+.form-control:focus{
+    /*background-color: grey;*/
+}
+.register input {
+    background-color: #2b193c;
+    color:white;
+
+}
 
 .btn-register {
     margin-top: 30px;
-    background-image: linear-gradient(to right bottom, #bdca48, #b9c23e, #b4b933, #b0b128, #aba91c, #a6a315, #a29e0c, #9d9802, #979301, #918e01, #8c8a00, #868500);
+    background: #ffa500;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.3s, transform 0.3s;
-    font-size: 120%;
+    font-size: 170%;
+    font-weight: bold;
+    color: white;
 }
 
 .btn-register:hover {
-   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
     transform: scale(1.05);
+    background: #ffa500;
+
 }
 
 /*----------------------------------REGINSTER END----------------------------------*/

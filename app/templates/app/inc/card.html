@@ -2,18 +2,18 @@
 <div class="card bg-gradient-danger  p-4 ">
     <div class="h-100">
 
-        <h4 class="card-title text-white mb-5">Name of the Card</h4>
+        <h4 class="card-title text-white mb-5">{{ account.name }}</h4>
         <div class="card_wrapper d-flex justify-content-between">
             <div class="money text-white">
                 <i class="fa fa-coins"></i>
-                <span>{{ card_balance }}</span>
+                <span>{{ account.balance }}</span>
             </div>
             <div id="change_money">
                 <i type="button" data-toggle="modal" data-target="#exampleModalCenter" class=" fa fa-circle-plus"></i>
             </div>
 
         </div>
-        {% include "app/inc/cart_modal.html" %}
+        {% include "app/inc/card_modal.html" %}
 
     </div>
 

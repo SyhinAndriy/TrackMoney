@@ -1,9 +1,13 @@
 $("#card_form").on("submit", function (event) {
     event.preventDefault(); // prevent default form submission behavior
+    let cartId = $(this).data()
+    let data = $(this).serializeArray()
+    data.push({name:"id", value: cartId['id']})
+    console.log(data)
     $.ajax({
         url: "/app/card-update/",
         method: "POST",
-        data: $(this).serialize(), // send form data as serialized string
+        data: data, // send form data as serialized string
         success: function (response) {
             console.log(response);
             let card_balance = response['data']

@@ -8,7 +8,7 @@ class TransactionAdmin(admin.ModelAdmin):
 
 
 class AccountAdmin(admin.ModelAdmin):
-    list_display = ('name', 'user', 'amount',)
+    list_display = ('name', 'user', 'balance',)
 
 
 admin.site.register(Category)

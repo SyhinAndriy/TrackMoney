@@ -1,0 +1,164 @@
+{% extends "app/layouts/home.html" %}
+{% block content %}
+    {% load static %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    {% if request.user.is_authenticated %}
+
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Форма фільтрації -->
+                <form id="filterForm" class="mb-4 form-control d-flex flex-column justify-content-center h-50">
+                    <div class="form-group mb-3">
+                        <label for="startDate">Start Date:</label>
+                        <input class="form-control" type="date" id="startDate" name="startDate" value="">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="endDate">End Date:</label>
+                        <input class="form-control" type="date" id="endDate" name="endDate">
+                    </div>
+
+
+                    <!-- Додай інші поля фільтрації за категоріями або іншими параметрами -->
+
+                    <button class="btn btn-dark transaction-btn" type="submit">Filter</button>
+                </form>
+            </div>
+            <div class="col-md-9">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+
+
+        <!-- Контейнер графіка -->
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+
+
+                // Отримання посилання на контейнер графіка
+                const ctx = document.getElementById('myChart').getContext('2d')
+
+
+                // Функція для отримання даних з сервера Django
+                function getDataFromServer() {
+                    // Отримання даних фільтра з форми
+                    var startDate = document.getElementById('startDate').value;
+                    var endDate = document.getElementById('endDate').value;
+
+                    // Отправка AJAX-запиту на сервер Django
+                    // Замість '/api/data/' вкажи відповідний URL до API на сервері Django
+                    $.ajax({
+                        url: '/api/data/',
+                        method: 'GET',
+                        data: {
+                            startDate: startDate,
+                            endDate: endDate
+                            // Додай інші параметри фільтрації, які передаються на сервер
+                        },
+                        success: function (response) {
+                            // Отримання даних від сервера та оновлення графіка
+                            updateChart(response);
+                        },
+                        error: function (error) {
+                            console.log('Помилка отримання даних з сервера:', error);
+                        }
+                    });
+                }
+
+                var previousChart;
+
+                // Функція для оновлення графіка
+                function updateChart(data) {
+                    // Знищуємо попередній графік, якщо він існує
+                    if (previousChart) {
+                        previousChart.destroy();
+                    }
+
+                    // Очищення контексту графіка
+                    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+                    // Налаштування графіка з отриманими даними
+                    var chart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: data.labels.map(function (label, index) {
+                                var percentage = (data.expensesData[index] / data.sum) * 100;
+                                return label + ' (' + percentage.toFixed(2) + '%)';
+                            }),
+                            datasets: [
+                                {
+                                    label: 'Expense',
+                                    data: data.expensesData,
+                                    backgroundColor: [
+                                        'rgba(0,122,252,0.8)',
+                                        'rgba(252,0,38,0.81)',
+                                        'rgba(8,252,0,0.83)',
+                                        'rgba(252,202,0,0.76)',
+                                        'rgba(0,252,155,0.8)',
+                                        'rgba(84,0,252,0.8)',
+                                        'rgba(223,64,248,0.75)',
+                                        'rgba(130,239,13,0.78)',
+                                    ],
+                                    borderColor: [
+                                        'rgb(0,89,192)',
+                                        'rgb(161,0,24)',
+                                        'rgb(7,131,0)',
+                                        'rgb(157,126,0)',
+                                        'rgb(0,138,87)',
+                                        'rgb(52,0,154)',
+                                        'rgb(132,39,147)',
+                                        'rgb(76,143,8)',
+                                    ],
+                                    borderWidth: 1
+                                },
+
+
+                            ]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    labels: {
+                                        color: 'rgba(255, 255, 255, 1)' // Змінити колір тексту назв сегментів
+                                    }
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    ticks: {
+                                        color: 'rgba(255, 255, 255, 1)' // Змінити колір тексту на осі X
+                                    }
+                                },
+                                y: {
+                                    ticks: {
+                                        color: 'rgba(255, 255, 255, 1)' // Змінити колір тексту на осі Y
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+                    // Зберігаємо посилання на новий графік
+                    previousChart = chart;
+                }
+
+                // Обробка події подачі форми фільтрації
+                document.getElementById('filterForm').addEventListener('submit', function (e) {
+                    e.preventDefault(); // Зупинка стандартної поведінки форми
+                    getDataFromServer(); // Отримання даних з сервера
+                });
+
+                // Отримання початкових даних з сервера при завантаженні сторінки
+                getDataFromServer();
+            });
+
+        </script>
+
+    {% endif %}
+{% endblock %}

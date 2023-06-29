@@ -6,7 +6,14 @@ class Account(models.Model):
     name = models.CharField(max_length=50, blank=False, null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     balance = models.DecimalField(max_digits=11, decimal_places=2, default=0)
-    priority = models.BooleanField(default=False )
+    priority = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+
+class CategoryType(models.Model):
+    name = models.CharField(max_length=20)
 
     def __str__(self):
         return self.name
@@ -14,29 +21,21 @@ class Account(models.Model):
 
 class Category(models.Model):
     category_name = models.CharField(max_length=30)
-
-    class Meta:
-        verbose_name_plural = 'Categories'
+    category_type = models.ForeignKey(CategoryType, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.category_name
 
 
 class Transaction(models.Model):
-    TRANSACTION_CHOICES = [
-        ('INCOME', 'Income'),
-        ('EXPENSE', 'Expense'),
-        ('TRANSFER', 'Transfer'),
-    ]
-    transaction_type = models.CharField(max_length=10, choices=TRANSACTION_CHOICES)
     amount = models.FloatField()
     date = models.DateTimeField(auto_now_add=True)
-    description = models.TextField()
+    description = models.TextField(default="")
     account = models.ForeignKey('Account', on_delete=models.CASCADE)
-    category = models.CharField(max_length=266)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.category
+        return self.description
 
     class Meta:
         ordering: ["-date"]

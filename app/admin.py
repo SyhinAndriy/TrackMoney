@@ -4,7 +4,7 @@ from app.models import *
 
 
 class TransactionAdmin(admin.ModelAdmin):
-    list_display = ('transaction_type', 'amount', 'date', 'description', 'account', 'category')
+    list_display = ('amount', 'date', 'description', 'account', 'category')
 
 
 class AccountAdmin(admin.ModelAdmin):
@@ -12,5 +12,6 @@ class AccountAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Category)
+admin.site.register(CategoryType)
 admin.site.register(Transaction, TransactionAdmin)
 admin.site.register(Account, AccountAdmin)

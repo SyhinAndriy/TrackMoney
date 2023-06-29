@@ -1,37 +1,45 @@
 {% extends "app/layouts/home.html" %}
 {% block content %}
 
-{% if request.user.is_authenticated %}
+    {% if request.user.is_authenticated %}
 
 
-    <div class="row">
-    {% for account in accounts %}
+        <div class="row">
+            {% for account in accounts %}
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="h-100">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="h-100">
 
-                    <h4 class="card-title text-white mb-5">{{ account.name }}</h4>
-                    <div class="card_wrapper d-flex justify-content-between">
-                        <div class="money text-white">
-                            <i class="fa fa-coins"></i>
-                            <span>{{ account.balance }}</span>
+                            <a href="{% url 'select_card' account.id %}"><h4 class="card-title text-white mb-5">{{ account.name }}</h4></a>
+                            <div class="card_wrapper d-flex justify-content-between">
+                                <div class="money text-white">
+                                    <i class="fa fa-coins"></i>
+                                    <span>{{ account.balance }}</span>
+                                </div>
+                                <div id="change_money">
+                                    <i type="button" data-toggle="modal" data-target="#exampleModalCenter"
+                                       class=" fa fa-circle-plus"></i>
+                                </div>
+
+                            </div>
+                            {% include "app/inc/card_modal.html" %}
+
                         </div>
-                        <div id="change_money">
-                            <i type="button" data-toggle="modal" data-target="#exampleModalCenter"
-                               class=" fa fa-circle-plus"></i>
-                        </div>
-
                     </div>
-                    {% include "app/inc/card_modal.html" %}
-
                 </div>
+
+            {% endfor %}
+            <div class="d-flex justify-content-center mt-5">
+                <button class="btn btn-dark transaction-btn fs-3 " data-toggle="modal"
+                        data-target="#addNewCard">Add new card
+                </button>
+
             </div>
         </div>
 
-    {% endfor %}
-    </div>
+        {% include "app/inc/add_new_card_modal.html" %}
 
-{% endif %}
+    {% endif %}
 
 {% endblock %}

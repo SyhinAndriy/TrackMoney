@@ -1,3 +1,7 @@
+a{
+    text-decoration: none;
+}
+
 body {
     height: 675px;
     background-image: linear-gradient(to right bottom, #4b4b4b, #3f3b40, #362b32, #2f1b21, #260a0a);
@@ -37,7 +41,7 @@ body {
 .navbar .nav-elem {
     list-style: disc;
     font-size: 120%;
-    color: rgba(255,255,255,0.51);
+    color: rgba(255, 255, 255, 0.51);
 }
 
 li.sub-item {
@@ -49,11 +53,13 @@ li.sub-item {
     transform: scale(1.15);
     color: white;
 }
-.user_elem{
-    color: rgba(255,255,255,0.51);
+
+.user_elem {
+    color: rgba(255, 255, 255, 0.51);
     font-size: 140%;
 }
-.user_elem li{
+
+.user_elem li {
     list-style: circle;
     font-size: 70%;
 }
@@ -77,10 +83,11 @@ li.sub-item {
     font-size: 24px;
 }
 
-.money, #change_money{
+.money, #change_money {
     font-size: 250%;
     font-weight: bold;
 }
+
 #change_money:hover {
     transform: scale(1.05);
     cursor: pointer;
@@ -188,12 +195,13 @@ h1 {
     margin-bottom: 15px;
 }
 
-.form-control:focus{
+.form-control:focus {
     /*background-color: grey;*/
 }
+
 .register input {
     background-color: #2b193c;
-    color:white;
+    color: white;
 
 }
 
@@ -215,3 +223,18 @@ h1 {
 }
 
 /*----------------------------------REGINSTER END----------------------------------*/
+
+.table.transaction_table{
+    color:white !important;
+    text-align: center;
+}
+
+#myChart{
+    height: 600px !important;
+}
+
+#filterForm{
+    background-color: #2a1e1f;
+    color: white;
+    border-radius: 20px;
+}
